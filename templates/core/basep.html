@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block head_title %}{% endblock %}</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{% static 'account/vendor/css/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'account/vendor/css/materialdesignicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'account/vendors/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'account/vendor/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'account/vendor/css/simple-line-icons.css' %}">
+    <link rel="stylesheet" href="{% static '/static/account/vendor/css/endor.bundle.base.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css" integrity="sha512-5PV92qsds/16vyYIJo3T/As4m2d8b6oWYfoqV+vtizRB6KhF1F9kYzWzQmsO6T3z3QG2Xdhrx7FQ+5R1LiQdUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css"> -->
+    <link rel="stylesheet" href="{% static '/static/account/vendor/css/select.dataTables.min.css' %}">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="{% static 'account/vendor/css/style.css' %}">
+    <!-- endinject -->
+    <style rel="stylesheet">
+        * {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- /navbar -->
+        {% include "account/navbar.html" %}
+
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <div class="theme-setting-wrapper">
+                <div id="settings-trigger">
+                    <i class="ti-settings"></i>
+                </div>
+            </div>
+            <div id="right-sidebar" class="settings-panel">
+                <i class="settings-close ti-close"></i>
+            </div>
+            <!-- partial -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="menu-title" style="font-size: 1.1rem;">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-category">Pages</li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false">
+                            place order
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#" aria-expanded="false"></a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- partial -->
+            {% block content %}
+
+            {% endblock content %}
+            <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+
+    <!-- plugins:js -->
+    <script src="{% static 'account/vendor/js/vendor.bundle.base.js' %}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{% static 'account/vendor/js/Chart.min.js' %}"></script>
+    <script src="{% static 'account/vendor/js/bootstrap-datepicker.min.js' %}"></script>
+    <script src="{% static 'account/vendor/js/progressbar.min.js' %}"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{% static 'account/vendor/js/off-canvas.js' %}"></script>
+    <script src="{% static 'account/vendor/js/hoverable-collapse.js' %}"></script>
+    <script src="{% static 'account/vendor/js/template.js' %}"></script>
+    <script src="{% static 'account/vendor/js/settings.js' %}"></script>
+    <script src="{% static 'account/vendor/js/todolist.js' %}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="{% static 'account/vendor/js/jquery.cookie.js' %}" type="text/javascript"></script>
+    <script src="{% static 'account/vendor/js/dashboard.js' %}"></script>
+    <script src="{% static 'account/vendor/js/Chart.roundedBarCharts.js' %}"></script>
+    <!-- End custom js for this page-->
+</body>
+
+</html>

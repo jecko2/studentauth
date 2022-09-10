@@ -1,0 +1,84 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "account creation" %}{% endblock %}
+
+{% block content %}
+<section id="signup-2" class="signup-section division">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+        <div class="register-form">
+          <form name="signupform" class="row sign-up-form signup" id="signup_form" method="post"
+            action="{% url 'account_signup' %}">
+            {% csrf_token %}
+
+            <!-- Title-->
+            <div class="col-md-12">
+              <div class="register-form-title text-center">
+                <h4 class="h4-lg">{% trans "Create Account" %}</h4>
+                <p class="p-xl">{% trans "Tell us a little about yourself" %}</p>
+              </div>
+            </div>
+
+            <!-- Form Input -->
+            <div class="col-md-12">
+              <input class="form-control name" type="email" name="email" id="id_email" placeholder="example@gmail.com">
+            </div>
+
+            <!-- Form Input -->
+            <div class="col-md-12">
+              <input class="form-control email" type="password" name="password1" id="id_password1"
+                placeholder="************">
+            </div>
+
+            <!-- Form Input -->
+            <div class="col-md-12">
+              <div class="wrap-input">
+                <span class="btn-show-pass ico-20">
+                  <span class="flaticon-visible eye-pass"></span>
+                </span>
+                <input class="form-control password" type="password" name="password2" id="id_password"
+                  placeholder="*************">
+              </div>
+            </div>
+
+            <!-- Redirect fields -->
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-md btn-skyblue tra-black-hover submit">Create Account</button>
+            </div>
+
+            <!-- Checkbox -->
+            <div class="col-md-12">
+              <div class="form-data">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                  <label class="form-check-label" for="exampleCheck1">
+                    <span>By clicking “Sign up”, you agree to our <a href="#">Terms</a> and that you have
+                      read our <a href="#"> Privacy Policy</a>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sing In Link -->
+            <div class="col-md-12 text-center">
+              <p class="create-account">
+                {% blocktrans %} Already have an account?
+                <a href="{{ login_url }}" class="skyblue-color">Log in</a>
+                {% endblocktrans %}
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

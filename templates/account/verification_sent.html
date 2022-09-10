@@ -1,0 +1,42 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block content %}
+
+<!-- RESET PASSWORD PAGE
+============================================= -->
+<section id="reset-password-1" class="reset-password-section division">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-8 offset-md-2">
+                <!-- RESET PASSWORD FORM -->
+                <div class="register-form">
+                    <div name="resetpasswordform" class="row reset-password-form">
+                        <!-- Title-->
+                        <div class="col-md-12 mt-10">
+                            <div class="register-form-title text-justify">
+                                <h4 class="h4-xl" style="padding-left: 16px;">{% trans "Verify Your E-mail Address" %}
+                                </h4>
+                                <p class="p-md pl-0">
+                                    {% blocktrans %}We have sent an e-mail to you for verification. Follow the link
+                                    provided to finalize the signup
+                                    process. If you do not see the verification e-mail in your main inbox, check your
+                                    spam folder. Please contact us if
+                                    you do not receive the verification e-mail within a few minutes.
+                                    {% endblocktrans %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END RESET PASSWORD FORM -->
+            </div>
+        </div> <!-- End row -->
+    </div> <!-- End container -->
+</section>
+<!-- END RESET PASSWORD PAGE -->
+
+{% endblock %}

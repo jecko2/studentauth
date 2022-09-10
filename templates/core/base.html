@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="DSAThemes" />
+  <meta name="description" content="OLMO - Software, App, SaaS & Startup Landing Pages Pack" />
+  <meta name="keywords"
+    content="Responsive, HTML5, DSAThemes, One Page, Landing, Software, Mobile App, SaaS, Startup, Creative, Freelancers, Digital Product">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- FAV ICONS -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/favicons/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/favicons/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/images/favicons/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'core/images/favicons/site.webmanifest' %}">
+
+  <!-- SITE TITLE -->
+  <title>{% block title %}{% endblock title %}</title>
+
+  <!-- FAVICON AND TOUCH ICONS -->
+  <!-- GOOGLE FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- FONT ICONS -->
+  <link href="{% static 'account/css/flaticon.css' %}" rel="stylesheet">
+
+  <!-- PLUGINS STYLESHEET -->
+  <link href="{% static 'account/css/menu.css' %}" rel="stylesheet">
+  <link id="effect" href="{% static 'account/css/fade-down.css' %}" media="all" rel="stylesheet">
+  <link href="{% static 'account/css/magnific-popup.css' %}" rel="stylesheet">
+  <link href="{% static 'account/css/owl.carousel.min.css' %}" rel="stylesheet">
+  <link href="{% static 'account/css/owl.theme.default.min.css' %}" rel="stylesheet">
+
+  <!-- BOOTSTRAP CSS -->
+  <link href="{% static 'account/css/bootstrap.min.css' %}" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="{% static 'account/css/bootstrap-icons.min.css' %}" /> -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css"
+    integrity="sha512-5PV92qsds/16vyYIJo3T/As4m2d8b6oWYfoqV+vtizRB6KhF1F9kYzWzQmsO6T3z3QG2Xdhrx7FQ+5R1LiQdUA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- ON SCROLL ANIMATION -->
+  <link href="{% static 'account/css/animate.css' %}" rel="stylesheet">
+
+  <!-- TEMPLATE CSS -->
+  <link href="{% static 'account/css/style.css' %}" rel="stylesheet">
+
+  <!-- RESPONSIVE CSS -->
+  <link href="{% static 'account/css/responsive.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- PAGE CONTENT
+		============================================= -->
+  <div id="page" class="page">
+    <!-- HEADER
+			============================================= -->
+    {% include "core/__partials/navbar.html" %}
+    <!-- END HEADER -->
+
+
+    {% block content %}
+
+    {% endblock content %}
+
+    <!-- FOOTER-4
+			============================================= -->
+    {% include "core/__partials/footer.html" %}
+    <!-- FOOTER-4 -->
+  </div>
+  <!-- END PAGE CONTENT -->
+
+
+
+
+  <!-- EXTERNAL SCRIPTS
+		============================================= -->
+  {% include "core/__partials/scripts.html" %}
+
+  <!-- Custom Script -->
+  <script src="{% static 'account/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'account/js/custom.js' %}"></script>
+  <!-- <script src="js/custom.js"></script> -->
+  <script src=""></script>
+
+</body>
+
+
+
+</html>

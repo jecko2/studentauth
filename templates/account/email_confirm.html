@@ -1,0 +1,61 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Confirm E-mail Address" %}{% endblock %}
+
+
+{% block content %}
+<!-- RESET PASSWORD PAGE
+    			============================================= -->
+<section id="reset-password-1" class="reset-password-section division">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+                <!-- RESET PASSWORD FORM -->
+                <div class="register-form">
+                    <!-- Title-->
+                    <div class="col-md-12">
+                        <div class="register-form-title text-justify">
+                            <h4 class="h4-xl">{% trans "confirm e-mail address" %}</h4>
+                            {% if confirmation %}
+
+                            {% user_display confirmation.email_address.user as user_display %}
+                            <p class="p-md">
+                                {% blocktrans with confirmation.email_address.email as email %}
+                                Please confirm that
+                                <a href="mailto:{{ email }}">{{ email }}</a>
+                                is an e-mail address for user {{ user_display }}.
+                                {% endblocktrans %}
+                            </p>
+                            <form name="resetpasswordform" class="row reset-password-form" method="post"
+                                action="{% url 'account_confirm_email' confirmation.key %}">
+                                {% csrf_token %}
+                                <div class="col-md-12 pl-0">
+                                    <button type="submit" class="btn btn-md btn-skyblue tra-black-hover submit">
+                                        confirm email
+                                    </button>
+                                </div>
+                            </form>
+                            {% else %}
+
+                            {% url 'account_email' as email_url %}
+                            <div class="col-lg-12 reset-form-msg">
+                                <span class="loading">
+                                    {% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a
+                                        href="{{ email_url }}">issue a new
+                                        e-mail confirmation request</a>.
+                                    {% endblocktrans %}
+                                </span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End row -->
+        </div>
+    </div> <!-- End container -->
+</section> <!-- END RESET PASSWORD PAGE -->
+
+{% endblock %}

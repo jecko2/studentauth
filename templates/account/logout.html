@@ -1,0 +1,40 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block content %}
+<section id="login-2" class="login-section division">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+        <!-- SIGN IN FORM -->
+
+        <div class="register-form">
+          <form name="signinform" class="row sign-in-form login" method="POST" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+
+            <!-- Title-->
+            <div class="col-md-12">
+              <div class="register-form-title text-center">
+                <h4 class="h4-lg">{% trans "Sign out" %}</h4>
+                <p class="p-xl">{% trans 'Are you sure you want to sign out?' %}</p>
+              </div>
+            </div>
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <!-- Form Submit Button -->
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-md btn-skyblue tra-black-hover submit">
+                {% trans "signout" %}
+              </button>
+            </div>
+          </form>
+        </div><!-- END SIGN IN FORM -->
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<!-- section start -->
+<section id="login-2" class="login-section division">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+        <!-- SIGN IN FORM -->
+        <div class="register-form">
+          <form name="signinform" class="row sign-in-form login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+
+            <!-- Title-->
+            <div class="col-md-12">
+              <div class="register-form-title text-center">
+                <h4 class="h4-lg">Welcome Back!</h4>
+                <p class="p-xl">Log in to your account</p>
+                {% if form.errors %}
+                <p class="p-xl" style="color: crimson; display: block;">{{form.errors}}</p>
+                {% else %}
+                <p style="display: none;">{{form.errors}}</p>
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-md-12">
+              <input class="form-control email" type="email" name="login" placeholder="example@example.com" autocomplete
+                required="" id="id_login">
+            </div>
+
+            <!-- Form Input -->
+            <div class="col-md-12">
+              <div class="wrap-input">
+                <span class="btn-show-pass ico-20">
+                  <span class="flaticon-visible eye-pass"></span>
+                </span>
+                <input class="form-control password" type="password" name="password" placeholder="Password"
+                  autocomplete="current-password" required="" id="id_password">
+              </div>
+            </div>
+
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+
+            <!-- Form Submit Button -->
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-md btn-skyblue tra-black-hover submit">
+                {% trans "Sign In" %}
+              </button>
+            </div>
+
+            <!-- Form Data  -->
+            <div class="col-md-12">
+              <div class="d-flex justify-content-around align-items-center form-data">
+
+                <!-- Checkbox -->
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                  <label class="form-check-label" for="exampleCheck1">
+                    Remember Me
+                  </label>
+                </div>
+
+                <!-- Forgot Password Link -->
+                <p class="forgot-password">
+                  <a href="{% url 'account_reset_password' %}">
+                    Forgot your password?
+                  </a>
+                </p>
+
+              </div>
+            </div>
+            {% get_providers as socialaccount_providers %}
+
+            {% if socialaccount_providers %}
+            <div class="socialaccount_ballot col-md-12 text-center">
+
+              <ul class="socialaccount_providers">
+                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+              </ul>
+
+              <div class="login-or login-separator-txt">
+                {% trans 'or' %}
+              </div>
+
+            </div>
+            {% include "socialaccount/snippets/login_extra.html" %}
+
+            {% else %}
+
+            <div class="col-md-12 text-center">
+              <p class="create-account">
+                {% blocktrans %}
+                Don't have an account?
+                <a href="{{ signup_url }}" class="skyblue-color">
+                  Sign up
+                </a>
+                {% endblocktrans %}
+              </p>
+            </div>
+            {% endif %}
+
+          </form>
+        </div>
+        <!-- END SIGN IN FORM -->
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

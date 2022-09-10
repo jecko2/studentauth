@@ -1,0 +1,17 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+{% load i18n %}
+
+{% block content %}{% autoescape off %}
+{% user_display user as user_display %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+Hello {{user_display}}, 
+Thanks for getting started on {{site_domain}}.
+
+Before being able to use your account you need to verify that this is your email address by clicking here:
+
+{{ activate_url }}
+
+Kind Regards, {{site_name}}
+{% endblocktrans %}{% endautoescape %}{% endblock %}
